@@ -1,0 +1,26 @@
+body {
+    background-color: #f1f8e9;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.fs-1 {
+    font-weight: bold;
+    color: #388e3c;
+}
+
+.table {
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+}
+
+#check-box {
+    margin-top: 10px;
+}
+
+#check-box input {
+    margin-right: 10px;
+}
