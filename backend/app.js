@@ -3,9 +3,20 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import http from "http";
 import { Server } from "socket.io";
+import path from "path";
+import { fileURLToPath } from "url";
 
 import dotenv from "dotenv";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
+// Serve all files in the current folder
+app.use(express.static(__dirname));
+
+// Optional: fallback for SPA
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../"));
+});
 
 dotenv.config();
 
