@@ -15,7 +15,7 @@ app.use(express.static(__dirname));
 
 // Optional: fallback for SPA
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../"));
+  res.sendFile(path.join(__dirname, ".."));
 });
 
 dotenv.config();
