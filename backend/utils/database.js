@@ -2,14 +2,19 @@
 import { Sequelize } from "sequelize";
 
 
-const DB_NAME = "chat_app";
-const DB_UN = "root";
-const DB_P = "rootnode";
-const DB_H = "localhost";
-
-const sequelize = new Sequelize(DB_NAME, DB_UN, DB_P, {
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: "mysql",
-  host: DB_H,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, 
+    },
+  },
+  pool: {
+    max: 5, 
+    min: 0,
+    idle: 10000,
+  },
 });
 
 
